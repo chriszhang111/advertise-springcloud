@@ -12,6 +12,7 @@
     <modules>
         <module>ad-eureka</module>
         <module>ad-gateway</module>
+        <module>chris-ad-service</module>
     </modules>
 
 
