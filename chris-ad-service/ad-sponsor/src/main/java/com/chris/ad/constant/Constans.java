@@ -9,5 +9,7 @@ public class Constans {
         public static final String CAN_NOT_FIND_RECORD = "找不到记录";
 
         public static final String SAME_NAME_PLAN_ERROR = "同名推广计划错误";
+
+        public static final String SAME_NAME_UNIT_ERROT = "存在同名的推广单元";
     }
 }
