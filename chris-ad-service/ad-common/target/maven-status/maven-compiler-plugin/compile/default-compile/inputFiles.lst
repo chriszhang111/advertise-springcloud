@@ -1,0 +1,6 @@
+/Users/chris/Desktop/spring/advertise-springcloud/chris-ad-service/ad-common/src/main/java/com/chris/ad/exception/AdException.java
+/Users/chris/Desktop/spring/advertise-springcloud/chris-ad-service/ad-common/src/main/java/com/chris/ad/conf/WebConfiguration.java
+/Users/chris/Desktop/spring/advertise-springcloud/chris-ad-service/ad-common/src/main/java/com/chris/ad/advice/CommonResponseDataAdvice.java
+/Users/chris/Desktop/spring/advertise-springcloud/chris-ad-service/ad-common/src/main/java/com/chris/ad/annotation/IgnoreResponseAdvice.java
+/Users/chris/Desktop/spring/advertise-springcloud/chris-ad-service/ad-common/src/main/java/com/chris/ad/vo/CommonResponse.java
+/Users/chris/Desktop/spring/advertise-springcloud/chris-ad-service/ad-common/src/main/java/com/chris/ad/advice/GlobalExceptionAdvice.java
