@@ -4,5 +4,5 @@ public enum OpType {
     ADD,
     UPDATE,
     DELETE,
-    OTHER
+    OTHER;
 }
