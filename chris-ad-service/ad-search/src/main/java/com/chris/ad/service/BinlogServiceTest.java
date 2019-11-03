@@ -38,36 +38,13 @@ public class BinlogServiceTest {
         }
 
     }
-
-
-
-// 单例模式返回数据库连接对象
-
     public static Connection getConnection() throws Exception {
-
         if (conn == null) {
-
             conn = DriverManager.getConnection(url, username, password);
-
             return conn;
-
         }
-
         return conn;
-
     }
-
-    /*
-    Update--------------
-    UpdateRowsEventData{tableId=81, includedColumnsBeforeUpdate={0, 1, 2}, includedColumns={0, 1, 2}, rows=[
-    {before=[12, 10, 大众], after=[12, 10, 大众1]}
-    ]}
-    Write---------------
-    WriteRowsEventData{tableId=81, includedColumns={0, 1, 2}, rows=[
-    [13, 10, NBA]
-    ]}
-     */
-
 
     public static void main(String[] args) throws Exception {
 
