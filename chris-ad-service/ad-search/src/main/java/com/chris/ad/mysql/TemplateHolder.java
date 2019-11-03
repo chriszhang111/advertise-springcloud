@@ -22,7 +22,7 @@ import java.util.Map;
 @Component
 public class TemplateHolder {
 
-    private ParseTemplate template;
+    private ParseTemplate parseTemplate;
 
 
     private JdbcTemplate jdbcTemplate;
@@ -32,7 +32,9 @@ public class TemplateHolder {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private String SQL_SCHEMA = "select table_schema, table_name, column_name, ordinal_position from information_schema.columns " +
+    private String SQL_SCHEMA = "select table_schema, " +
+            "table_name, column_name, ordinal_position " +
+            "from information_schema.columns " +
             "where table_schema = ? and table_name = ?";
 
     @PostConstruct
@@ -54,7 +56,7 @@ public class TemplateHolder {
 
 
     public TableTemplate getTable(String tableName){
-        return template.getTableTemplateMap().get(tableName);
+        return parseTemplate.getTableTemplateMap().get(tableName);
     }
 
     private void loadJson(String path){
@@ -69,7 +71,7 @@ public class TemplateHolder {
                     Template.class
             );
 
-            this.template = ParseTemplate.parse(template);
+            this.parseTemplate = ParseTemplate.parse(template);
             loadMeta();
         }catch (IOException e){
             log.error(e.getMessage());
@@ -78,7 +80,7 @@ public class TemplateHolder {
     }
 
     private void loadMeta(){
-        for(Map.Entry<String, TableTemplate> entry: template.getTableTemplateMap().entrySet()){
+        for(Map.Entry<String, TableTemplate> entry: parseTemplate.getTableTemplateMap().entrySet()){
             TableTemplate table = entry.getValue();
 
             List<String> updateFields = table.getOpTypeFieldSetMap().get(OpType.UPDATE);
@@ -86,7 +88,7 @@ public class TemplateHolder {
             List<String> deleteFields = table.getOpTypeFieldSetMap().get(OpType.DELETE);
 
             jdbcTemplate.query(SQL_SCHEMA, new Object[]{
-                    template.getDatabase(), table.getTableName()
+                    parseTemplate.getDatabase(), table.getTableName()
             }, (rs, i) -> {
 
                 int pos = rs.getInt("ORDINAL_POSITION");
