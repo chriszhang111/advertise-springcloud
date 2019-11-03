@@ -50,7 +50,7 @@ public class IncrementListener implements Ilistener {
         OpType optype = OpType.to(eventType);
         rowData.setOpType(optype);
 
-        //取出模版中改造错对应的字段列表
+        //取出模版中该操作对应的字段列表
         List<String> fieldList = table.getOpTypeFieldSetMap().get(optype);
         if(fieldList == null){
             return;

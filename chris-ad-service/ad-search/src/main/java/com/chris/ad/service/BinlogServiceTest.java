@@ -24,6 +24,16 @@ public class BinlogServiceTest {
 
 
 // 静态代码块负责加载驱动
+    /*
+
+    WriteRowsEventData{tableId=88, includedColumns={0, 1, 2, 3, 4, 5, 6, 7},
+     rows=[
+    [11, 15, Test Plan, 1,
+    Sun Nov 03 09:35:45 EST 2019,
+    Tue Nov 03 09:35:48 EST 2020,
+    Sat Nov 02 20:00:00 EDT 2019,
+    Sat Nov 02 20:00:00 EDT 2019]
+     */
 
     static {
 
