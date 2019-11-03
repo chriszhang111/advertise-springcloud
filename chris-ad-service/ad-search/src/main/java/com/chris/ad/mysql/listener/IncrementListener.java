@@ -23,7 +23,7 @@ public class IncrementListener implements Ilistener {
 
     private AggregationListener aggregationListener;
 
-    @Resource(name = "")
+    @Resource(name = "indexSender")
     private ISender sender;
 
     @Autowired

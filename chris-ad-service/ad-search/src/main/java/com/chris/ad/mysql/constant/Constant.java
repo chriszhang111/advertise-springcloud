@@ -13,6 +13,7 @@ public class Constant {
         public static final String COLUMN_USER_ID = "user_id";
         public static final String COLUMN_PLAN_STATUS = "plan_status";
         public static final String COLUMN_END_DATE = "end_date";
+        public static final String COLUMN_START_DATE = "start_date";
     }
 
     public static class AD_CREATIVE_TABLE_INFO {
