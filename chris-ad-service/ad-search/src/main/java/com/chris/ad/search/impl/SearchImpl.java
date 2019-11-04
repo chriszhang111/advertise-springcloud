@@ -1,7 +1,13 @@
 package com.chris.ad.search.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.chris.ad.index.CommonStatus;
 import com.chris.ad.index.DataTable;
 import com.chris.ad.index.adunit.AdUnitIndex;
+import com.chris.ad.index.adunit.AdUnitObject;
+import com.chris.ad.index.creative.CreativeIndex;
+import com.chris.ad.index.creative.CreativeObject;
+import com.chris.ad.index.creativeunit.CreativeUnitIndex;
 import com.chris.ad.index.district.UnitDistrictIndex;
 import com.chris.ad.index.interest.UnitItIndex;
 import com.chris.ad.index.keyword.UnitKeywordIndex;
@@ -50,8 +56,30 @@ public class SearchImpl implements ISearch {
             }else{
                 targetUnitIdSet = getORRelationUnitIds(adUnitIdSet, keywordFeature, districtFeature, itFeature);
             }
+
+            List<AdUnitObject> unitObjects = DataTable.of(AdUnitIndex.class).fetch(targetUnitIdSet);
+            filterAdUnitAndPlanStatus(unitObjects, CommonStatus.VALID);
+            List<Long> adIds = DataTable.of(CreativeUnitIndex.class).selectAds(unitObjects);
+            List<CreativeObject> creatives = DataTable.of(CreativeIndex.class).fetch(adIds);
+            //通过adslot实现对creativeobj的过滤
+            filterCreativeByAdSlot(creatives,
+                    adSlot.getWidth(),
+                    adSlot.getHeight(),
+                    adSlot.getType());
+            adSlot2Ads.put(adSlot.getAdSlotCode(), buildCreativeResponse(creatives));
+
         }
-        return null;
+        log.info("Fetch Ads: {}-{}", JSON.toJSONString(request), JSON.toJSONString(response));
+        return response;
+    }
+
+    private List<SearchResponse.Creative> buildCreativeResponse(List<CreativeObject> creatives){
+        if(CollectionUtils.isEmpty(creatives))
+            return Collections.emptyList();
+        CreativeObject randomObj = creatives.get(Math.abs(new Random().nextInt() % creatives.size()));
+        return Collections.singletonList(
+                SearchResponse.convert(randomObj)
+        );
     }
 
     private Set<Long> getORRelationUnitIds(Set<Long> adUnitItSet,
@@ -107,5 +135,31 @@ public class SearchImpl implements ISearch {
                     adUnitId -> DataTable.of(UnitItIndex.class).match(adUnitId, itFeature.getIts())
             );
         }
+    }
+
+    private void filterAdUnitAndPlanStatus(List<AdUnitObject> unitObjects,
+                                           CommonStatus status){
+        if(CollectionUtils.isEmpty(unitObjects))
+            return;
+        CollectionUtils.filter(
+                unitObjects,
+                unitObject->unitObject.getUnitStatus().equals(status.getStatus()) &&
+                        unitObject.getAdPlanObject().getPlanStatus().equals(status.getStatus())
+        );
+    }
+
+    private void filterCreativeByAdSlot(List<CreativeObject> creativeObjects,
+                                        Integer width,
+                                        Integer height,
+                                        List<Integer> type){
+        if(CollectionUtils.isEmpty(creativeObjects))
+            return;
+        CollectionUtils.filter(creativeObjects,
+                creative->
+        creative.getAuditStatus().equals(CommonStatus.VALID.getStatus())
+        && creative.getWidth().equals(width)
+        && creative.getHeight().equals(height)
+        && type.contains(creative.getType()));
+
     }
 }
