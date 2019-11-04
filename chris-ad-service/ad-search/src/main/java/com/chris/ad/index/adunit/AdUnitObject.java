@@ -29,4 +29,42 @@ public class AdUnitObject {
         if(null != newobj.getAdPlanObject())
             this.adPlanObject = newobj.getAdPlanObject();
     }
+
+    private static boolean isKaiPing(int positionType){
+        return (positionType & AdUnitConstants.POSITION_TYPE.KAIPING) > 0;
+    }
+
+    private static boolean isTiePian(int positionType){
+        return (positionType & AdUnitConstants.POSITION_TYPE.TIEPIAN) > 0;
+    }
+
+    private static boolean isTiePianMiddle(int positionType) {
+        return (positionType & AdUnitConstants.POSITION_TYPE.MIDDLE) > 0;
+    }
+
+    private static boolean isTiePianPause(int positionType) {
+        return (positionType & AdUnitConstants.POSITION_TYPE.PAUSE) > 0;
+    }
+
+    private static boolean isTiePianPost(int positionType) {
+        return (positionType & AdUnitConstants.POSITION_TYPE.POST) > 0;
+    }
+
+    public static boolean isAdSlotTypeOK(int adSlotType, int positionType) {
+
+        switch (adSlotType) {
+            case AdUnitConstants.POSITION_TYPE.KAIPING:
+                return isKaiPing(positionType);
+            case AdUnitConstants.POSITION_TYPE.TIEPIAN:
+                return isTiePian(positionType);
+            case AdUnitConstants.POSITION_TYPE.MIDDLE:
+                return isTiePianMiddle(positionType);
+            case AdUnitConstants.POSITION_TYPE.PAUSE:
+                return isTiePianPause(positionType);
+            case AdUnitConstants.POSITION_TYPE.POST:
+                return isTiePianPost(positionType);
+            default:
+                return false;
+        }
+    }
 }
