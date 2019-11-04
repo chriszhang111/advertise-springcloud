@@ -50,7 +50,6 @@ public class SearchImpl implements ISearch {
             }else{
                 targetUnitIdSet = getORRelationUnitIds(adUnitIdSet, keywordFeature, districtFeature, itFeature);
             }
-
         }
         return null;
     }

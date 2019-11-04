@@ -23,14 +23,13 @@ public class CreativeIndex implements IndexAware<Long, CreativeObject>{
         objectMap = new ConcurrentHashMap<>();
     }
 
+    //根据creativeID，获取对象
     public List<CreativeObject> fetch(Collection<Long> adIds) {
 
         if (CollectionUtils.isEmpty(adIds)) {
             return Collections.emptyList();
         }
-
         List<CreativeObject> result = new ArrayList<>();
-
         adIds.forEach(u -> {
             CreativeObject object = get(u);
             if (null == object) {
