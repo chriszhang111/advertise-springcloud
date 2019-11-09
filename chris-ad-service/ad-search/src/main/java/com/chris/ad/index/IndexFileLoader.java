@@ -5,6 +5,7 @@ import com.chris.ad.dump.DConstant;
 import com.chris.ad.dump.table.*;
 import com.chris.ad.handler.AdLevelDataHandler;
 import com.chris.ad.mysql.constant.OpType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
@@ -18,10 +19,13 @@ import java.util.stream.Collectors;
 
 @Component
 @DependsOn("dataTable")
+@Slf4j
 public class IndexFileLoader {
 
-    //@PostConstruct
+    @PostConstruct
     public void init(){
+        System.out.println("---------------------------**********----------------------------");
+        System.out.println("Init index loader");
         List<String> adPlanString = loadDumpData(
                 String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_PLAN)
         );

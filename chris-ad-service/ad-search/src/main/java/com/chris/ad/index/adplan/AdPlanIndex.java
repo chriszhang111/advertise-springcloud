@@ -25,6 +25,7 @@ public class AdPlanIndex implements IndexAware<Long, AdPlanObject>{
     public void add(Long key, AdPlanObject value) {
         log.info("before add");
         objectMap.put(key, value);
+        log.info("after add: {}", objectMap);
 
     }
 
