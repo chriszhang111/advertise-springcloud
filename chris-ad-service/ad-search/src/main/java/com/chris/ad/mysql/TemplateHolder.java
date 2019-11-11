@@ -46,7 +46,7 @@ public class TemplateHolder {
 //    public static void main(String[] args) {
 //        DriverManagerDataSource dataSource = new DriverManagerDataSource();// 连接管理器
 //        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//        dataSource.setUrl("jdbc:mysql://localhost:3306/imooc_ad_data");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/imooc_ad_data?serverTimezone=GMT");
 //        dataSource.setUsername("root");
 //        dataSource.setPassword("31415926");
 //

@@ -17,7 +17,7 @@ public class BinlogRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        log.info("Coming in Binlog Runner");
+        log.info("Coming in Binlog Runner...");
         client.connect();
     }
 }
