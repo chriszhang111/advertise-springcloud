@@ -81,14 +81,14 @@ public class TemplateHolder {
 
     private void loadMeta(){
         for(Map.Entry<String, TableTemplate> entry: parseTemplate.getTableTemplateMap().entrySet()){
-            TableTemplate table = entry.getValue();
+            TableTemplate tableTemplate = entry.getValue();
 
-            List<String> updateFields = table.getOpTypeFieldSetMap().get(OpType.UPDATE);
-            List<String> insertFields = table.getOpTypeFieldSetMap().get(OpType.ADD);
-            List<String> deleteFields = table.getOpTypeFieldSetMap().get(OpType.DELETE);
+            List<String> updateFields = tableTemplate.getOpTypeFieldSetMap().get(OpType.UPDATE);
+            List<String> insertFields = tableTemplate.getOpTypeFieldSetMap().get(OpType.ADD);
+            List<String> deleteFields = tableTemplate.getOpTypeFieldSetMap().get(OpType.DELETE);
 
             jdbcTemplate.query(SQL_SCHEMA, new Object[]{
-                    parseTemplate.getDatabase(), table.getTableName()
+                    parseTemplate.getDatabase(), tableTemplate.getTableName()
             }, (rs, i) -> {
 
                 int pos = rs.getInt("ORDINAL_POSITION");
@@ -97,7 +97,7 @@ public class TemplateHolder {
                 if ((null != updateFields && updateFields.contains(colName))
                         || (null != insertFields && insertFields.contains(colName))
                         || (null != deleteFields && deleteFields.contains(colName))) {
-                    table.getPosMap().put(pos - 1, colName);
+                    tableTemplate.getPosMap().put(pos - 1, colName);
                 }
 
                 return null;

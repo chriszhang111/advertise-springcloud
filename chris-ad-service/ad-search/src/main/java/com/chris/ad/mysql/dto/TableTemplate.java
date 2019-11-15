@@ -17,6 +17,9 @@ public class TableTemplate {
     private String tableName;
     private String level;
 
+    /**
+     * Example: OPType:ADD -> List<String>:{"id", "user_id", "plan_status", "start_date"...}
+     */
     private Map<OpType, List<String>> opTypeFieldSetMap = new HashMap<>();
 
     //字段索引 -> 字段名

@@ -59,12 +59,14 @@ public class IncrementListener implements Ilistener {
         for(Map<String, String> afterMap: eventData.getAfter()){
 
             Map<String, String> _afterMap = new HashMap<>();
+            //Map<String, String> _afterMap = new HashMap<>(afterMap);
             for (Map.Entry<String, String> entry : afterMap.entrySet()) {
                 String colName = entry.getKey();
                 String colValue = entry.getValue();
 
                 _afterMap.put(colName, colValue);
             }
+
 
             rowData.getFieldValueMap().add(_afterMap);
 

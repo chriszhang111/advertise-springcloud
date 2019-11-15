@@ -33,6 +33,13 @@ public class BinlogServiceTest {
     Tue Nov 03 09:35:48 EST 2020,
     Sat Nov 02 20:00:00 EDT 2019,
     Sat Nov 02 20:00:00 EDT 2019]
+
+
+    UpdateRowsEventData{tableId=92, includedColumnsBeforeUpdate={0, 1, 2, 3, 4, 5, 6, 7}, includedColumns={0, 1, 2, 3, 4, 5, 6, 7}, rows=[
+    {before=[10, 10, 第一个推广单元, 1, 1, 10000000, Tue Nov 20 06:43:26 EST 2018, Tue Nov 20 06:43:26 EST 2018], after=[10, 10, 第一个推广单元, 1, 1, 100000, Tue Nov 20 06:43:26 EST 2018, Tue Nov 20 06:43:26 EST 2018]},
+    {before=[12, 10, 第二个推广单元, 1, 1, 15000000, Sun Dec 31 19:00:00 EST 2017, Sun Dec 31 19:00:00 EST 2017], after=[12, 10, 第二个推广单元, 1, 1, 100000, Sun Dec 31 19:00:00 EST 2017, Sun Dec 31 19:00:00 EST 2017]},
+    {before=[13, 10, 第三个推广单元, 1, 1, 1000000, Sat Nov 09 14:52:35 EST 2019, Sat Nov 09 14:52:35 EST 2019], after=[13, 10, 第三个推广单元, 1, 1, 100000, Sat Nov 09 14:52:35 EST 2019, Sat Nov 09 14:52:35 EST 2019]}
+]}
      */
 
     static {
