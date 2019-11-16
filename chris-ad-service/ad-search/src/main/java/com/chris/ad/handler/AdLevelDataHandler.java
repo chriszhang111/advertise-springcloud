@@ -15,7 +15,7 @@ import com.chris.ad.index.creativeunit.CreativeUnitObject;
 import com.chris.ad.index.district.UnitDistrictIndex;
 import com.chris.ad.index.interest.UnitItIndex;
 import com.chris.ad.index.keyword.UnitKeywordIndex;
-import com.chris.ad.mysql.constant.OpType;
+import com.chris.ad.constant.OpType;
 import com.chris.ad.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
 

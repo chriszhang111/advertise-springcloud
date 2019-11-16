@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.chris.ad.dump.DConstant;
 import com.chris.ad.dump.table.*;
 import com.chris.ad.handler.AdLevelDataHandler;
-import com.chris.ad.mysql.constant.OpType;
+import com.chris.ad.constant.OpType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;

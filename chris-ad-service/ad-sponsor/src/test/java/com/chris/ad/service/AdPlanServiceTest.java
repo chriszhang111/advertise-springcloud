@@ -36,20 +36,20 @@ public class AdPlanServiceTest {
         );
     }
 
-    @Test
-    public void testCreateUnit() throws AdException{
-        System.out.println("****************************************************");
-        AdUnitResponse response = unitService.createUnit(
-                new AdUnitRequest(
-                        10L,
-                        "第三个推广单元",
-                        1,
-                        1000000L
-                )
-        );
-
-        System.out.println(JSON.toJSONString(response));
-    }
+//    @Test
+//    public void testCreateUnit() throws AdException{
+//        System.out.println("****************************************************");
+//        AdUnitResponse response = unitService.createUnit(
+//                new AdUnitRequest(
+//                        10L,
+//                        "第三个推广单元",
+//                        1,
+//                        1000000L
+//                )
+//        );
+//
+//        System.out.println(JSON.toJSONString(response));
+//    }
 
 
 
