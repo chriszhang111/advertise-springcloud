@@ -1,4 +1,4 @@
-package com.chris.ad.mysql.constant;
+package com.chris.ad.constant;
 
 import com.github.shyiko.mysql.binlog.event.EventType;
 

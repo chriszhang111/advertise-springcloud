@@ -1,7 +1,7 @@
 package com.chris.ad.mysql;
 
 import com.alibaba.fastjson.JSON;
-import com.chris.ad.mysql.constant.OpType;
+import com.chris.ad.constant.OpType;
 import com.chris.ad.mysql.dto.ParseTemplate;
 import com.chris.ad.mysql.dto.TableTemplate;
 import com.chris.ad.mysql.dto.Template;

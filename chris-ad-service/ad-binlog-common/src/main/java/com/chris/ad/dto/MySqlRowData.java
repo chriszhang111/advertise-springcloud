@@ -1,6 +1,6 @@
-package com.chris.ad.mysql.dto;
+package com.chris.ad.dto;
 
-import com.chris.ad.mysql.constant.OpType;
+import com.chris.ad.constant.OpType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

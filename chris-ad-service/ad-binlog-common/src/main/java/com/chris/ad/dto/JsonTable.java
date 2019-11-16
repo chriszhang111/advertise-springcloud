@@ -1,4 +1,4 @@
-package com.chris.ad.mysql.dto;
+package com.chris.ad.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
