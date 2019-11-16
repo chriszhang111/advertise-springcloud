@@ -1,8 +1,8 @@
 package com.chris.ad.mysql.listener;
 
 import com.chris.ad.mysql.TemplateHolder;
-import com.chris.ad.mysql.dto.BinlogRowData;
-import com.chris.ad.mysql.dto.TableTemplate;
+import com.chris.ad.dto.BinlogRowData;
+import com.chris.ad.dto.TableTemplate;
 import com.github.shyiko.mysql.binlog.BinaryLogClient;
 import com.github.shyiko.mysql.binlog.event.*;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,7 @@
 package com.chris.ad.sender;
 
-import com.chris.ad.mysql.dto.MySqlRowData;
+
+import com.chris.ad.dto.MySqlRowData;
 
 public interface ISender {
 

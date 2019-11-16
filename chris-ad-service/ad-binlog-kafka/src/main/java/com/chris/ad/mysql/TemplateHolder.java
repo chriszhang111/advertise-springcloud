@@ -2,13 +2,12 @@ package com.chris.ad.mysql;
 
 import com.alibaba.fastjson.JSON;
 import com.chris.ad.constant.OpType;
-import com.chris.ad.mysql.dto.ParseTemplate;
-import com.chris.ad.mysql.dto.TableTemplate;
-import com.chris.ad.mysql.dto.Template;
+import com.chris.ad.dto.ParseTemplate;
+import com.chris.ad.dto.TableTemplate;
+import com.chris.ad.dto.Template;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;

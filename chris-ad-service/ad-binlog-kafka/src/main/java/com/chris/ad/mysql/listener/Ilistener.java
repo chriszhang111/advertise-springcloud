@@ -1,6 +1,6 @@
 package com.chris.ad.mysql.listener;
 
-import com.chris.ad.mysql.dto.BinlogRowData;
+import com.chris.ad.dto.BinlogRowData;
 
 public interface Ilistener {
 

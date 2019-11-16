@@ -1,10 +1,10 @@
 package com.chris.ad.mysql.listener;
 
-import com.chris.ad.mysql.constant.Constant;
-import com.chris.ad.mysql.constant.OpType;
-import com.chris.ad.mysql.dto.BinlogRowData;
-import com.chris.ad.mysql.dto.MySqlRowData;
-import com.chris.ad.mysql.dto.TableTemplate;
+import com.chris.ad.constant.Constant;
+import com.chris.ad.constant.OpType;
+import com.chris.ad.dto.BinlogRowData;
+import com.chris.ad.dto.MySqlRowData;
+import com.chris.ad.dto.TableTemplate;
 import com.chris.ad.sender.ISender;
 import com.github.shyiko.mysql.binlog.event.EventType;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class IncrementListener implements Ilistener {
 
     private AggregationListener aggregationListener;
 
-    @Resource(name = "indexSender")
+    @Resource
     private ISender sender;
 
     @Autowired
