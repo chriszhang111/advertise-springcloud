@@ -1,6 +1,5 @@
 .idea/
 .idea/modules.xml
-/target/
 ad-eureka/src/test/
 ad-eureka/target/generated-sources/
 ad-gateway/src/test/
@@ -43,7 +42,6 @@ chris-ad-service/ad-search/target/classes/com/chris/ad/index/interest/UnitItInde
 chris-ad-service/ad-search/target/classes/com/chris/ad/index/interest/UnitItObject 2.class
 chris-ad-service/ad-search/target/classes/com/chris/ad/index/keyword/UnitKeywordIndex 2.class
 chris-ad-service/ad-search/target/classes/com/chris/ad/index/keyword/UnitKeywordObject 2.class
-chris-ad-service/ad-search/target/classes/com/chris/ad/redis/
 chris-ad-service/ad-search/target/classes/com/chris/ad/search/impl/SearchImpl 2.class
 chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/SearchResponse 2.class
 chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/SearchResponse$Creative 2.class
