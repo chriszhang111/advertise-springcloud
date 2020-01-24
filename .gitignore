@@ -1,3 +1,66 @@
 .idea/
 .idea/modules.xml
 /target/
+ad-eureka/src/test/
+ad-eureka/target/generated-sources/
+ad-gateway/src/test/
+ad-gateway/target/generated-sources/
+chris-ad-service/ad-binlog-common/src/main/resources/
+chris-ad-service/ad-binlog-common/src/test/
+chris-ad-service/ad-binlog-common/target/generated-sources/
+chris-ad-service/ad-binlog-kafka/src/test/
+chris-ad-service/ad-binlog-kafka/target/generated-sources/
+chris-ad-service/ad-common/src/main/resources/
+chris-ad-service/ad-common/src/test/
+chris-ad-service/ad-common/target/generated-sources/
+chris-ad-service/ad-dashboard/src/test/
+chris-ad-service/ad-dashboard/target/generated-sources/
+chris-ad-service/ad-search/target/classes/com/chris/ad/SearchApplication 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/client/SponsorClient 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/client/SponsorClientHystrix 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/client/vo/AdPlan 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/client/vo/AdPlanGetRequest 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/consumer/BinLogConsumer 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/controller/SearchController 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/handler/AdLevelDataHandler 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/handler/AdLevelDataHandler$1 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/CommonStatus 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/DataLevel 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/IndexFileLoader 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/adplan/AdPlanIndex 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/adplan/AdPlanObject 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/adunit/AdUnitConstants 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/adunit/AdUnitConstants$POSITION_TYPE 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/adunit/AdUnitIndex 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/adunit/AdUnitObject 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/creative/CreativeIndex 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/creative/CreativeObject 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/creativeunit/CreativeUnitIndex 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/creativeunit/CreativeUnitObject 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/district/UnitDistrictIndex 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/district/UnitDistrictObject 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/interest/UnitItIndex 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/interest/UnitItObject 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/keyword/UnitKeywordIndex 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/index/keyword/UnitKeywordObject 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/redis/
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/impl/SearchImpl 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/SearchResponse 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/SearchResponse$Creative 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/feature/ItFeature 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/feature/KeywordFeature 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/media/AdSlot 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/media/App 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/media/Device 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/search/vo/media/Geo 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/sender/ISender 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/sender/index/IndexSender 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/service/BinlogServiceTest 2.class
+chris-ad-service/ad-search/target/classes/com/chris/ad/utils/CommonUtils 2.class
+chris-ad-service/ad-search/target/generated-sources/
+chris-ad-service/ad-search/target/generated-test-sources/
+chris-ad-service/ad-search/target/test-classes/com/chris/ad/Application 2.class
+chris-ad-service/ad-search/target/test-classes/com/chris/ad/search/General 2.class
+chris-ad-service/ad-search/target/test-classes/com/chris/ad/search/SearchTest 2.class
+chris-ad-service/ad-sponsor/target/generated-sources/
+chris-ad-service/ad-sponsor/target/generated-test-sources/
