@@ -9,4 +9,6 @@ public interface IndexAware<K, V>{
     void update(K key, V value);
 
     void delete(K key, V value);
+
+    V getFromRedis(K key);
 }

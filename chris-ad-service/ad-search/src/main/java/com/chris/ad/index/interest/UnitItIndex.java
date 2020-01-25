@@ -19,6 +19,11 @@ public class UnitItIndex implements IndexAware<String, Set<Long>>{
     private static Map<String, Set<Long>> itUnitMap;
     private static Map<Long, Set<String>> unitItMap;
 
+    @Override
+    public Set<Long> getFromRedis(String key) {
+        return null;
+    }
+
     static{
         itUnitMap = new ConcurrentHashMap<>();
         unitItMap = new ConcurrentHashMap<>();

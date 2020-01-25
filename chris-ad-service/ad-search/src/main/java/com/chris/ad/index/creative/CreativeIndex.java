@@ -2,9 +2,12 @@ package com.chris.ad.index.creative;
 
 
 
+import com.alibaba.fastjson.JSON;
 import com.chris.ad.index.IndexAware;
+import com.chris.ad.redis.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -18,9 +21,13 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class CreativeIndex implements IndexAware<Long, CreativeObject>{
     private static Map<Long, CreativeObject> objectMap;
+    private static String IndexName;
+    @Autowired
+    private RedisUtils redisUtils;
 
     static {
         objectMap = new ConcurrentHashMap<>();
+        IndexName = CreativeIndex.class.getSimpleName();
     }
 
     //根据creativeID，获取对象
@@ -43,7 +50,10 @@ public class CreativeIndex implements IndexAware<Long, CreativeObject>{
         return result;
     }
 
-
+    @Override
+    public CreativeObject getFromRedis(Long key) {
+        return JSON.parseObject(redisUtils.hget(IndexName, key+""), CreativeObject.class);
+    }
 
     @Override
     public CreativeObject get(Long key) {
@@ -53,6 +63,7 @@ public class CreativeIndex implements IndexAware<Long, CreativeObject>{
     @Override
     public void add(Long key, CreativeObject value) {
         objectMap.put(key, value);
+        redisUtils.hset(IndexName, key+"", JSON.toJSONString(value));
     }
 
     @Override
@@ -69,4 +80,6 @@ public class CreativeIndex implements IndexAware<Long, CreativeObject>{
     public void delete(Long key, CreativeObject value) {
         objectMap.remove(key);
     }
+
+    //Todo: add redis update, delete
 }

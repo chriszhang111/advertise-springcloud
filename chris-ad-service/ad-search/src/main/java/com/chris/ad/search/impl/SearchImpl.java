@@ -35,7 +35,7 @@ public class SearchImpl implements ISearch {
         return null;
     }
     @Override
-    @HystrixCommand(fallbackMethod = "fallback")
+//    @HystrixCommand(fallbackMethod = "fallback")
     public SearchResponse fetchAds(SearchRequest request) {
 
         List<AdSlot> adSlots = request.getRequestInfo().getAdSlots();

@@ -49,7 +49,7 @@ public class IndexFileLoader {
         adUnitStrings.forEach(p->AdLevelDataHandler.handleLevel3(
                 JSON.parseObject(p, AdUnitTable.class), OpType.ADD
         ));
-
+//
         List<String> creativeUnitStrings = loadDumpData(
                 String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_CREATIVE_UNIT)
         );
@@ -57,26 +57,26 @@ public class IndexFileLoader {
         creativeUnitStrings.forEach(cu ->AdLevelDataHandler.handleLevel3(
                 JSON.parseObject(cu, AdCreativeUnitTable.class), OpType.ADD
         ));
-
-        List<String> districtStrings = loadDumpData(
-                String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_DISTRICT)
-        );
-
-        districtStrings.forEach(d->AdLevelDataHandler.handleLevel4(
-                JSON.parseObject(d, AdUnitDistrictTable.class), OpType.ADD
-        ));
-
-        List<String> itStrings = loadDumpData(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_IT));
-
-        itStrings.forEach(it->AdLevelDataHandler.handleLevel4(
-                JSON.parseObject(it, AdUnitItTable.class), OpType.ADD
-        ));
-
-        List<String> keywordStrings = loadDumpData(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_KEYWORD));
-
-        keywordStrings.forEach(k->AdLevelDataHandler.handleLevel4(
-                JSON.parseObject(k, AdUnitKeywordTable.class), OpType.ADD
-        ));
+//
+//        List<String> districtStrings = loadDumpData(
+//                String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_DISTRICT)
+//        );
+//
+//        districtStrings.forEach(d->AdLevelDataHandler.handleLevel4(
+//                JSON.parseObject(d, AdUnitDistrictTable.class), OpType.ADD
+//        ));
+//
+//        List<String> itStrings = loadDumpData(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_IT));
+//
+//        itStrings.forEach(it->AdLevelDataHandler.handleLevel4(
+//                JSON.parseObject(it, AdUnitItTable.class), OpType.ADD
+//        ));
+//
+//        List<String> keywordStrings = loadDumpData(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_KEYWORD));
+//
+//        keywordStrings.forEach(k->AdLevelDataHandler.handleLevel4(
+//                JSON.parseObject(k, AdUnitKeywordTable.class), OpType.ADD
+//        ));
     }
 
     private List<String> loadDumpData(String fileName){

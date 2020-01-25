@@ -1,5 +1,7 @@
 package com.chris.ad.index;
 
+import com.chris.ad.search.vo.feature.KeywordFeature;
+import com.chris.ad.search.vo.media.Geo;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -44,4 +46,6 @@ public class DataTable implements ApplicationContextAware, PriorityOrdered{
         dataTableMap.put(clazz, bean(clazz));
         return (T) dataTableMap.get(clazz);
     }
+
+
 }

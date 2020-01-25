@@ -51,6 +51,11 @@ public class UnitKeywordIndex implements IndexAware<String, Set<Long>>{
     }
 
     @Override
+    public Set<Long> getFromRedis(String key) {
+        return null;
+    }
+
+    @Override
     public void update(String key, Set<Long> value) {
             log.error("keyword index can not support update");
     }

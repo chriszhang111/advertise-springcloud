@@ -20,6 +20,11 @@ public class UnitDistrictIndex implements IndexAware<String,Set<Long>>{
     private static Map<String, Set<Long>> districtUnitMap;
     private static Map<Long, Set<String>> unitDistrictMap;
 
+    @Override
+    public Set<Long> getFromRedis(String key) {
+        return null;
+    }
+
     static{
         districtUnitMap = new ConcurrentHashMap<>();
         unitDistrictMap = new ConcurrentHashMap<>();
