@@ -1,10 +1,14 @@
 package com.chris.ad.index.keyword;
 
+import com.alibaba.fastjson.JSON;
 import com.chris.ad.index.IndexAware;
+import com.chris.ad.index.district.UnitDistrictIndex;
+import com.chris.ad.redis.RedisUtils;
 import com.chris.ad.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -20,10 +24,17 @@ public class UnitKeywordIndex implements IndexAware<String, Set<Long>>{
 
     private static Map<String, Set<Long>> keywordUnitMap;
     private static Map<Long, Set<String>> unitKeywordMap;
+    private static String IndexName;
+    private static String keyUnit = "keyU";
+    private static String unitKey = "uniK";
+
+    @Autowired
+    private RedisUtils redisUtils;
 
     static{
         keywordUnitMap = new ConcurrentHashMap<>();
         unitKeywordMap = new ConcurrentHashMap<>();
+        IndexName = UnitDistrictIndex.class.getSimpleName();
     }
     @Override
     public Set<Long> get(String key) {
@@ -34,6 +45,14 @@ public class UnitKeywordIndex implements IndexAware<String, Set<Long>>{
             return Collections.emptySet();
         }
         return result;
+    }
+
+    @Override
+    public Set<Long> getFromRedis(String key) {
+        if(StringUtils.isEmpty(key))
+            return Collections.emptySet();
+        Set<Long> result = JSON.parseObject(redisUtils.hget(IndexName+":"+keyUnit, key), ConcurrentSkipListSet.class);
+        return result == null ? Collections.emptySet() : result;
     }
 
     @Override
@@ -48,12 +67,25 @@ public class UnitKeywordIndex implements IndexAware<String, Set<Long>>{
             keywordSet.add(key);
 
         }
+        addToRedis(key, value);
     }
 
-    @Override
-    public Set<Long> getFromRedis(String key) {
-        return null;
+    public void addToRedis(String key, Set<Long> value){
+        Set<Long> unitIdSet = JSON.parseObject(redisUtils.hget(IndexName+":"+keyUnit, key), ConcurrentSkipListSet.class);
+        if(unitIdSet == null)
+            unitIdSet = new ConcurrentSkipListSet<>();
+        unitIdSet.addAll(value);
+        redisUtils.hset(IndexName+":"+keyUnit, key, JSON.toJSONString(unitIdSet));
+
+        for(Long unitId: value){
+            Set<String> keywordSet = JSON.parseObject(redisUtils.hget(IndexName+":"+unitKey, unitId+""), ConcurrentSkipListSet.class);
+            if(keywordSet == null)
+                keywordSet = new ConcurrentSkipListSet<>();
+            keywordSet.add(key);
+            redisUtils.hset(IndexName+":"+unitKey, unitId+"", JSON.toJSONString(keywordSet));
+        }
     }
+
 
     @Override
     public void update(String key, Set<Long> value) {
